@@ -10,11 +10,12 @@ let x = 0,
 const speed = 2;
 const pallete = ["#ff8800", "#e124ff", "#6a19ff", "#ff2188"];
 let dvd = document.getElementById("dvd");
+//@ts-expect-error
 dvd.style.color = pallete[0];
 let prevColorChoiceIndex = 0;
 let black = document.getElementById("black");
-const dvdWidth = dvd.clientWidth;
-const dvdHeight = dvd.clientHeight;
+const dvdWidth = dvd?.clientWidth || 0;
+const dvdHeight = dvd?.clientHeight || 0;
 
 function getNewRandomColor() {
   const currentPallete = [...pallete]
@@ -49,22 +50,27 @@ dayjs.updateLocale('en', {
 const text = `Season 12 Drops : ${dayjs('2024-08-20 14:00:00').fromNow(true)}`
 
 function animate() {
+  //@ts-expect-error
   dvd.innerHTML = text
+
   const screenHeight = document.body.clientHeight;
   const screenWidth = document.body.clientWidth;
 
   if (y + dvdHeight >= screenHeight || y < 0) {
     dirY *= -1;
+    //@ts-expect-error
     dvd.style.color = getNewRandomColor();
   }
   if (x + dvdWidth >= screenWidth || x < 0) {
     dirX *= -1;
-
-    dvd.style.color = getNewRandomColor();
+    //@ts-expect-error
+    dv?.style.color = getNewRandomColor();
   }
   x += dirX * speed;
   y += dirY * speed;
+  //@ts-expect-error
   dvd.style.left = x + "px";
+  //@ts-expect-error
   dvd.style.top = y + "px";
   window.requestAnimationFrame(animate);
 }
