@@ -13,7 +13,6 @@ let dvd = document.getElementById("dvd");
 //@ts-expect-error
 dvd.style.color = pallete[0];
 let prevColorChoiceIndex = 0;
-let black = document.getElementById("black");
 const dvdWidth = dvd?.clientWidth || 0;
 const dvdHeight = dvd?.clientHeight || 0;
 
