@@ -63,7 +63,7 @@ function animate() {
   if (x + dvdWidth >= screenWidth || x < 0) {
     dirX *= -1;
     //@ts-expect-error
-    dv?.style.color = getNewRandomColor();
+    dvd.style.color = getNewRandomColor();
   }
   x += dirX * speed;
   y += dirY * speed;
