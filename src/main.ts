@@ -46,7 +46,7 @@ dayjs.updateLocale('en', {
   }
 })
 
-const text = `Season 12 Drops : ${dayjs('2024-08-20 14:00:00').fromNow(true)}`
+const text = `Season 13 Drops : ${dayjs('2024-11-20 14:00:00').fromNow(true)}`
 
 function animate() {
   //@ts-expect-error
