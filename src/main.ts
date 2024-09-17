@@ -27,8 +27,6 @@ dvd.style.color = pallete[0];
 let prevColorChoiceIndex = 0;
 const dvdWidth = dvd?.clientWidth || 0;
 const dvdHeight = dvd?.clientHeight || 0;
-const gifWidth = gif?.clientWidth || 0;
-const gifHeight = gif?.clientHeight || 0;
 
 // Function to get a random new color
 function getNewRandomColor() {
