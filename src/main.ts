@@ -1,6 +1,8 @@
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import updateLocale from 'dayjs/plugin/updateLocale'
+import timezone from 'dayjs/plugin/timezone'
+import utc from 'dayjs/plugin/utc'
 import './style.css'
 
 let x = 0,
@@ -27,6 +29,8 @@ function getNewRandomColor() {
 
 dayjs.extend(relativeTime)
 dayjs.extend(updateLocale)
+dayjs.extend(timezone)
+dayjs.extend(utc)
 
 dayjs.updateLocale('en', {
   relativeTime: {
@@ -46,11 +50,26 @@ dayjs.updateLocale('en', {
   }
 })
 
-const text = `Season 13 Drops : ${dayjs('2024-11-20 14:00:00').fromNow(true)}`
+const eventTime = dayjs.tz('2024-09-17 14:00:00', 'America/New_York');
+
+function getCountdown() {
+  const now = dayjs().tz('America/New_York');
+  const diff = eventTime.diff(now);
+
+  if (diff <= 0) {
+    return "00h:00m:00s";
+  }
+
+  const hours = Math.floor(diff / (1000 * 60 * 60)).toString().padStart(2, '0');
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+  return `${hours}h:${minutes}m:${seconds}s`;
+}
+
 
 function animate() {
   //@ts-expect-error
-  dvd.innerHTML = text
+  dvd.innerHTML = `Midseseason patch in: ${getCountdown()}`;
 
   const screenHeight = document.body.clientHeight;
   const screenWidth = document.body.clientWidth;
