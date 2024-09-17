@@ -1,21 +1,36 @@
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import updateLocale from 'dayjs/plugin/updateLocale'
+import timezone from 'dayjs/plugin/timezone'
+import utc from 'dayjs/plugin/utc'
 import './style.css'
 
+dayjs.extend(relativeTime)
+dayjs.extend(updateLocale)
+dayjs.extend(utc)
+dayjs.extend(timezone)
+
+// Timezone configuration
+const eventTime = dayjs.tz('2024-09-17 14:00:00', 'America/New_York');
+let dvd = document.getElementById("dvd");
+let gif = document.getElementById("gif");
+
+// Color and movement variables
 let x = 0,
   y = 0,
   dirX = 1,
   dirY = 1;
 const speed = 2;
 const pallete = ["#ff8800", "#e124ff", "#6a19ff", "#ff2188"];
-let dvd = document.getElementById("dvd");
 //@ts-expect-error
 dvd.style.color = pallete[0];
 let prevColorChoiceIndex = 0;
 const dvdWidth = dvd?.clientWidth || 0;
 const dvdHeight = dvd?.clientHeight || 0;
+const gifWidth = gif?.clientWidth || 0;
+const gifHeight = gif?.clientHeight || 0;
 
+// Function to get a random new color
 function getNewRandomColor() {
   const currentPallete = [...pallete]
   currentPallete.splice(prevColorChoiceIndex, 1)
@@ -25,33 +40,27 @@ function getNewRandomColor() {
   return colorChoice;
 }
 
-dayjs.extend(relativeTime)
-dayjs.extend(updateLocale)
+// Function to format remaining time in "00h:00m:00s"
+function getCountdown() {
+  const now = dayjs().tz('America/New_York');
+  const diff = eventTime.diff(now);
 
-dayjs.updateLocale('en', {
-  relativeTime: {
-    future: "in %s",
-    past: "%s ago",
-    s: 'a few seconds',
-    m: "a minute",
-    mm: "%d minutes",
-    h: "an hour",
-    hh: "%d hours",
-    d: "a day",
-    dd: "%d days",
-    M: "a month",
-    MM: "%d months",
-    y: "a year",
-    yy: "%d years"
+  if (diff <= 0) {
+    return "00h:00m:00s";
   }
-})
 
-const text = `Season 13 Drops : ${dayjs('2024-11-20 14:00:00').fromNow(true)}`
+  const hours = Math.floor(diff / (1000 * 60 * 60)).toString().padStart(2, '0');
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+  return `${hours}h:${minutes}m:${seconds}s`;
+}
 
 function animate() {
+  // Update the countdown text
   //@ts-expect-error
-  dvd.innerHTML = text
+  dvd.innerHTML = `Season 13 Drops in: ${getCountdown()}`;
 
+  // Handle bouncing animation
   const screenHeight = document.body.clientHeight;
   const screenWidth = document.body.clientWidth;
 
@@ -59,19 +68,38 @@ function animate() {
     dirY *= -1;
     //@ts-expect-error
     dvd.style.color = getNewRandomColor();
+    //@ts-expect-error
+    gif.style.filter = `hue-rotate(${Math.random() * 360}deg)`; // Change GIF color effect
   }
   if (x + dvdWidth >= screenWidth || x < 0) {
     dirX *= -1;
     //@ts-expect-error
     dvd.style.color = getNewRandomColor();
+    //@ts-expect-error
+    gif.style.filter = `hue-rotate(${Math.random() * 360}deg)`; // Change GIF color effect
   }
+
   x += dirX * speed;
   y += dirY * speed;
+
+  // Update text and GIF positions
   //@ts-expect-error
   dvd.style.left = x + "px";
   //@ts-expect-error
   dvd.style.top = y + "px";
+  //@ts-expect-error
+  gif.style.left = x + "px"; // Sync GIF with text movement
+  //@ts-expect-error
+  gif.style.top = y + dvdHeight + 10 + "px"; // Position GIF slightly below the text
+
   window.requestAnimationFrame(animate);
 }
 
+// Start the animation and countdown
 window.requestAnimationFrame(animate);
+
+// Ensure the countdown updates every second
+setInterval(() => {
+  //@ts-expect-error
+  dvd.innerHTML = `Season 13 Drops in: ${getCountdown()}`;
+}, 1000);
