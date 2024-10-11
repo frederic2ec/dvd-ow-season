@@ -11,7 +11,7 @@ dayjs.extend(utc)
 dayjs.extend(timezone)
 
 // Timezone configuration
-const eventTime = dayjs.tz('2024-10-04 14:00:00', 'America/New_York');
+const eventTime = dayjs.tz('2024-10-15 14:00:00', 'America/New_York');
 let dvd = document.getElementById("dvd");
 let gif = document.getElementById("gif");
 
@@ -56,7 +56,7 @@ function getCountdown() {
 function animate() {
   // Update the countdown text
   //@ts-expect-error
-  dvd.innerHTML = `Drops in: ${getCountdown()}`;
+  dvd.innerHTML = `Season 13 Drops in: ${getCountdown()}`;
 
   // Handle bouncing animation
   const screenHeight = document.body.clientHeight;
