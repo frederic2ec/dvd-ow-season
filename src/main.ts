@@ -56,7 +56,7 @@ function getCountdown() {
 function animate() {
   // Update the countdown text
   //@ts-expect-error
-  dvd.innerHTML = `Season 13 Drops in: ${getCountdown()}`;
+  dvd.innerHTML = `Season 13 in: ${getCountdown()}`;
 
   // Handle bouncing animation
   const screenHeight = document.body.clientHeight;
@@ -99,5 +99,5 @@ window.requestAnimationFrame(animate);
 // Ensure the countdown updates every second
 setInterval(() => {
   //@ts-expect-error
-  dvd.innerHTML = `Season 13 Drops in: ${getCountdown()}`;
+  dvd.innerHTML = `Season 13 in: ${getCountdown()}`;
 }, 1000);
