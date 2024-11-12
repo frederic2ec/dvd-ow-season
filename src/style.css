@@ -22,3 +22,17 @@ body {
   background-size: 75px;
   background-position: center;
 }
+
+#dvd-2 {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 50px;
+  width: max-content;
+  font-family: Inter;
+  font-weight: 800;
+  font-size: 32px;
+  background-repeat: no-repeat;
+  background-size: 75px;
+  background-position: center;
+}
