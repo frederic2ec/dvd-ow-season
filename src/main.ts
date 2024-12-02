@@ -12,7 +12,7 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 
 // Timezone configuration
-const eventTime = dayjs.tz('2024-12-02 19:00:00', 'America/New_York');
+const eventTime = dayjs.tz('2024-12-10 14:00:00', 'America/New_York');
 
 // DOM elements
 let dvd = document.getElementById('dvd');
@@ -73,7 +73,7 @@ function getCountdown() {
 function animate() {
   // Update the countdown text
   //@ts-expect-error
-  dvd.innerHTML = `Marvel Rivals in: ${getCountdown()}`;
+  dvd.innerHTML = `Season 14: ${getCountdown()}`;
 
   // Handle bouncing animation
   const screenHeight = document.body.clientHeight;
@@ -114,7 +114,7 @@ function animate() {
 function animate2() {
   // Update the countdown text
   //@ts-expect-error
-  dvd2.innerHTML = `Marvel Rivals in: ${getCountdown()}`;
+  dvd2.innerHTML = `Season 14: ${getCountdown()}`;
 
   // Handle bouncing animation
   const screenHeight = document.body.clientHeight;
@@ -158,7 +158,7 @@ window.requestAnimationFrame(animate2);
 // Ensure the countdown updates every second
 setInterval(() => {
   //@ts-expect-error
-  dvd.innerHTML = `Marvel Rivals in: ${getCountdown()}`;
+  dvd.innerHTML = `Season 14: ${getCountdown()}`;
   //@ts-expect-error
-  dvd2.innerHTML = `Marvel Rivals in: ${getCountdown()}`;
+  dvd2.innerHTML = `Season 14: ${getCountdown()}`;
 }, 1000);
