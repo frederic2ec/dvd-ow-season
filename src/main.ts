@@ -73,7 +73,7 @@ function getCountdown() {
 function animate() {
   // Update the countdown text
   //@ts-expect-error
-  dvd.innerHTML = `Season 14: ${getCountdown()}`;
+  dvd.innerHTML = `Streamer Giveaway: ${getCountdown()}`;
 
   // Handle bouncing animation
   const screenHeight = document.body.clientHeight;
