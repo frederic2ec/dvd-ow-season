@@ -83,15 +83,11 @@ function animate() {
     dirY1 *= -1;
     //@ts-expect-error
     dvd.style.color = getNewRandomColor();
-    //@ts-expect-error
-    gif.style.filter = `hue-rotate(${Math.random() * 360}deg)`; // Change GIF color effect
   }
   if (x1 + dvdWidth >= screenWidth || x1 < 0) {
     dirX1 *= -1;
     //@ts-expect-error
     dvd.style.color = getNewRandomColor();
-    //@ts-expect-error
-    gif.style.filter = `hue-rotate(${Math.random() * 360}deg)`; // Change GIF color effect
   }
 
   x1 += dirX1 * speed;
