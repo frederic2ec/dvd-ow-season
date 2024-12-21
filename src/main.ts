@@ -124,15 +124,11 @@ function animate2() {
     dirY2 *= -1;
     //@ts-expect-error
     dvd2.style.color = getNewRandomColor();
-    //@ts-expect-error
-    gif2.style.filter = `hue-rotate(${Math.random() * 360}deg)`; // Change GIF color effect
   }
   if (x2 + dvd2Width >= screenWidth || x2 < 0) {
     dirX2 *= -1;
     //@ts-expect-error
     dvd2.style.color = getNewRandomColor();
-    //@ts-expect-error
-    gif2.style.filter = `hue-rotate(${Math.random() * 360}deg)`; // Change GIF color effect
   }
 
   x2 += dirX2 * speed; // Reverse direction
