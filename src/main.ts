@@ -73,7 +73,7 @@ function getCountdown() {
 function animate() {
   // Update the countdown text
   //@ts-expect-error
-  dvd.innerHTML = `Event Starts: ${getCountdown()}`;
+  dvd.innerHTML = `Virginia Server: Event Starts: ${getCountdown()}`;
 
   // Handle bouncing animation
   const screenHeight = document.body.clientHeight;
@@ -110,7 +110,7 @@ function animate() {
 function animate2() {
   // Update the countdown text
   //@ts-expect-error
-  dvd2.innerHTML = `Event Starts: ${getCountdown()}`;
+  dvd2.innerHTML = `Virginia Server: Event Starts: ${getCountdown()}`;
 
   // Handle bouncing animation
   const screenHeight = document.body.clientHeight;
@@ -150,7 +150,7 @@ window.requestAnimationFrame(animate2);
 // Ensure the countdown updates every second
 setInterval(() => {
   //@ts-expect-error
-  dvd.innerHTML = `Event Starts: ${getCountdown()}`;
+  dvd.innerHTML = `Virginia Server: Event Starts: ${getCountdown()}`;
   //@ts-expect-error
-  dvd2.innerHTML = `Event Starts: ${getCountdown()}`;
+  dvd2.innerHTML = `Virginia Server: Event Starts: ${getCountdown()}`;
 }, 1000);
