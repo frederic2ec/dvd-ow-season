@@ -73,7 +73,7 @@ function getCountdown() {
 function animate() {
   // Update the countdown text
   //@ts-expect-error
-  dvd.innerHTML = `Virginia Server: Event Starts: ${getCountdown()}`;
+  dvd.innerHTML = `OW 2 Midseason Patch: ${getCountdown()}`;
 
   // Handle bouncing animation
   const screenHeight = document.body.clientHeight;
@@ -110,7 +110,7 @@ function animate() {
 function animate2() {
   // Update the countdown text
   //@ts-expect-error
-  dvd2.innerHTML = `Virginia Server: Event Starts: ${getCountdown()}`;
+  dvd2.innerHTML = `OW 2 Midseason Patch: ${getCountdown()}`;
 
   // Handle bouncing animation
   const screenHeight = document.body.clientHeight;
@@ -150,7 +150,7 @@ window.requestAnimationFrame(animate2);
 // Ensure the countdown updates every second
 setInterval(() => {
   //@ts-expect-error
-  dvd.innerHTML = `Virginia Server: Event Starts: ${getCountdown()}`;
+  dvd.innerHTML = `OW 2 Midseason Patch: ${getCountdown()}`;
   //@ts-expect-error
-  dvd2.innerHTML = `Virginia Server: Event Starts: ${getCountdown()}`;
+  dvd2.innerHTML = `OW 2 Midseason Patch: ${getCountdown()}`;
 }, 1000);
