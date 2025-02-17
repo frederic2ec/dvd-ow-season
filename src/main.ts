@@ -12,7 +12,7 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 
 // Timezone configuration
-const eventTime = dayjs.tz('2024-02-18 16:00:00', 'America/New_York');
+const eventTime = dayjs.tz('2025-02-18 16:00:00', 'America/New_York');
 
 // DOM elements
 let dvd = document.getElementById('dvd');
