@@ -12,7 +12,7 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 
 // Timezone configuration
-const eventTime = dayjs.tz('2025-04-04 17:00:00', 'America/New_York');
+const eventTime = dayjs.tz('2025-05-20 14:00:00', 'America/New_York');
 
 // DOM elements
 let dvd = document.getElementById('dvd');
@@ -73,7 +73,7 @@ function getCountdown() {
 function animate() {
   // Update the countdown text
   //@ts-expect-error
-  dvd.innerHTML = `Emma Frost EA in: ${getCountdown()}`;
+  dvd.innerHTML = `Midseason Patch in: ${getCountdown()}`;
 
   // Handle bouncing animation
   const screenHeight = document.body.clientHeight;
@@ -110,7 +110,7 @@ function animate() {
 function animate2() {
   // Update the countdown text
   //@ts-expect-error
-  dvd2.innerHTML = `Emma Frost EA in: ${getCountdown()}`;
+  dvd2.innerHTML = `Midseason Patch in: ${getCountdown()}`;
 
   // Handle bouncing animation
   const screenHeight = document.body.clientHeight;
@@ -150,7 +150,7 @@ window.requestAnimationFrame(animate2);
 // Ensure the countdown updates every second
 setInterval(() => {
   //@ts-expect-error
-  dvd.innerHTML = `Emma Frost EA in: ${getCountdown()}`;
+  dvd.innerHTML = `Midseason Patch in: ${getCountdown()}`;
   //@ts-expect-error
-  dvd2.innerHTML = `Emma Frost EA in: ${getCountdown()}`;
+  dvd2.innerHTML = `Midseason Patch in: ${getCountdown()}`;
 }, 1000);
